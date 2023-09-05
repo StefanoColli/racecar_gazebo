@@ -56,6 +56,39 @@
   </plugin>
 </gazebo>
 
+<xacro:unless value="$(optenv PACEJKA true)">
+ <gazebo>
+   <plugin name = "gazebo_ros_wheel_slip" filename = "//TODO.so">
+	 <robotNamespace>/racecar</robotNamespace>
+	 <remapping>~/wheel_slip:=/racecar/wheel_slip</remapping> 
+	 <wheel link_name ="right_front_wheel">
+		 <road>1</road>
+		 <front_rear>0</front_rear>
+		 <wheel_normal_force>13.71</wheel_normal_force>
+		 <wheel_radius>0.05</wheel_radius>
+	 </wheel>
+         <wheel link_name ="left_front_wheel"> 
+		 <road>1</road>
+		 <front_rear>0</front_rear>
+		 <wheel_normal_force>13.71</wheel_normal_force>
+		 <wheel_radius>0.05</wheel_radius>
+	 </wheel>
+	 <wheel link_name ="right_rear_wheel"> 
+		 <road>1</road>
+		 <front_rear>1</front_rear>
+		 <wheel_normal_force>13.71</wheel_normal_force>
+		 <wheel_radius>0.05</wheel_radius>
+	 </wheel>
+	 <wheel link_name ="left_rear_wheel"> 
+		 <road>1</road>
+		 <front_rear>1</front_rear>
+		 <wheel_normal_force>13.71</wheel_normal_force>
+		 <wheel_radius>0.05</wheel_radius>
+	 </wheel>
+  </plugin>
+</gazebo>
+</xacro:unless>
+
   <!-- hokuyo -->
 <xacro:unless value="$(optenv DISABLE_GAZEBO_LASER false)">
   <gazebo reference="laser">

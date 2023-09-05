@@ -101,6 +101,19 @@
   <geometry>
     <cylinder length="0.045" radius="0.05" />
   </geometry>
+  <xacro:unless value="$(optenv PACEJKA true)">
+  <surface>
+    <friction>
+      <ode>
+        <mu>1.0</mu>
+  	<mu2>1.0</mu2>
+        <fdir1>1 0 0</fdir1>
+        <slip1>0</slip1>
+        <slip2>0</slip2>
+      </ode>
+    </friction>
+  </surface>
+  </xacro:unless>
 </xacro:macro>
 
 <xacro:macro name="right_wheels_collision_geometry">
@@ -108,6 +121,19 @@
   <geometry>
     <cylinder length="0.045" radius="0.05" />
   </geometry>
+  <xacro:unless value="$(optenv PACEJKA true)">
+  <surface>
+    <friction>
+      <ode>
+        <mu>1.0</mu>
+  	<mu2>1.0</mu2>
+        <fdir1>0 0 1</fdir1>
+        <slip1>0</slip1>
+        <slip2>0</slip2>
+      </ode>
+    </friction>
+  </surface>
+  </xacro:unless>
 </xacro:macro>
 
 <!-- transmission macros -->
